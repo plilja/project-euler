@@ -1,6 +1,7 @@
 from unittest import TestCase
 from multiples import *
 
+
 class TestMultiplesOf3And5(TestCase):
     def test_no_multiples(self):
         self.assertEqual(multiples_of_3_and_5(0), 0)
