@@ -3,7 +3,7 @@ import unittest
 from pythagorean_triplet import pythagorean_triplet
 
 
-class MyTestCase(unittest.TestCase):
+class TestPythagoreanTriplet(unittest.TestCase):
     def test_should_fail_when_sum_is_0_or_less(self):
         for i in range(-10, 0, 1):
             with self.assertRaises(ValueError):
