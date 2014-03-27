@@ -1,4 +1,4 @@
-from unittest import *
+from unittest import TestCase
 
 from smallest_multiple import *
 
@@ -27,3 +27,4 @@ class TestSmallestMultiple(TestCase):
 
     def test_smallest_multiple_that_is_divisible_by_1_through_20_is_232792560(self):
         self.assertEqual(smallest_multiple(range(1, 21)), 232792560)
+

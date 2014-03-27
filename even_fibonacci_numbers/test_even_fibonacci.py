@@ -1,8 +1,9 @@
 from unittest import TestCase
+
 from even_fibonacci import *
 
-class TestEvenFibonacciSum(TestCase):
 
+class TestEvenFibonacciSum(TestCase):
     def test_no_numbers(self):
         self.assertEqual(even_fibonacci(1), 0)
 
@@ -23,7 +24,6 @@ class TestEvenFibonacciSum(TestCase):
 
 
 class TestFibonacciNumbers(TestCase):
-
     def test_no_numbers(self):
         self.assertEqual(fibonacci_numbers_up_to(0), [])
 

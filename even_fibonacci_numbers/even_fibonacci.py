@@ -1,9 +1,11 @@
-from math import sqrt, log, floor
+from math import sqrt, log
 
 PSI = (1.0 + sqrt(5)) / 2.0
 
+
 def n_th_fibonacci_number(n):
     return round(pow(PSI, n) / sqrt(5))
+
 
 def even_fibonacci(upper_limit):
     return even_fibonacci_mathematical(upper_limit)
