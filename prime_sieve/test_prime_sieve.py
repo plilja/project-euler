@@ -61,7 +61,7 @@ class TestPrimeSieve(TestCase):
         prime_sieve = PrimeSieve(100)
         self.assertEqual(prime_sieve.primes(), tuple(prime_numbers_less_than_100))
 
-    def test_10001_th_prime_number_is_104759(self):
+    def test_10001_th_prime_number_is_104743(self):
         prime_sieve = PrimeSieve(500000)
-        self.assertEqual(prime_sieve.primes()[10001], 104759)
+        self.assertEqual(prime_sieve.primes()[10000], 104743)
 
