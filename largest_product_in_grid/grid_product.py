@@ -20,7 +20,7 @@ def _create_downwards_diagonal(matrix, startrow, startcol):
     return [matrix[x[0]][x[1]] for x in indices]
 
 
-def calculate_max_row_product(length, matrix):
+def _calculate_max_row_product(length, matrix):
     max_val = -1
     for i in xrange(matrix.num_rows()):
         max_val_for_column = _calculate_max_product_for_vector(matrix[i], length)
@@ -28,7 +28,7 @@ def calculate_max_row_product(length, matrix):
     return max_val
 
 
-def calculate_max_downward_diagonal(length, matrix):
+def _calculate_max_downward_diagonal(length, matrix):
     max_val = -1
     for i in xrange(matrix.num_rows()):
         max_val_for_downwards_diagonal = _calculate_max_product_for_vector(_create_downwards_diagonal(matrix, i, 0),
@@ -41,7 +41,7 @@ def calculate_max_downward_diagonal(length, matrix):
     return max_val
 
 
-def flip_horizontally(matrix):
+def _flip_horizontally(matrix):
     m = Matrix(matrix.num_rows(), matrix.num_columns())
     for i in xrange(m.num_rows()):
         for j in xrange(m.num_columns()):
@@ -50,8 +50,8 @@ def flip_horizontally(matrix):
 
 
 def largest_grid_product(matrix, length):
-    max_val = max(calculate_max_row_product(length, matrix),
-                  calculate_max_row_product(length, matrix.transpose()),
-                  calculate_max_downward_diagonal(length, matrix),
-                  calculate_max_downward_diagonal(length, flip_horizontally(matrix)))
+    max_val = max(_calculate_max_row_product(length, matrix),
+                  _calculate_max_row_product(length, matrix.transpose()),
+                  _calculate_max_downward_diagonal(length, matrix),
+                  _calculate_max_downward_diagonal(length, _flip_horizontally(matrix)))
     return max_val
