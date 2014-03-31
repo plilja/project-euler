@@ -3,7 +3,7 @@ import unittest
 from counting_sundays import *
 
 
-class TestCountingDays(unittest.TestCase):
+class TestCountingSundays(unittest.TestCase):
     def test_zero_sundays(self):
         self.assertEqual(count_sundays_between(Date(1900, 1, 1), Date(1900, 1, 1)), 0)
         self.assertEqual(count_sundays_between(Date(1900, 1, 1), Date(1900, 1, 6)), 0)
@@ -39,6 +39,8 @@ class TestCountingDays(unittest.TestCase):
     def test_two_years(self):
         self.assertEqual(count_sundays_between(Date(2013, 1, 1), Date(2014, 12, 31)), 104)
 
+
+class TestCountingSundaysOnTheFirstOfAMonth(unittest.TestCase):
     def test_project_euler_input(self):
         self.assertEqual(count_sundays_on_the_first_between(Date(1901, 1, 1), Date(2000, 12, 31)), 171)
 
