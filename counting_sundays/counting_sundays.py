@@ -1,30 +1,38 @@
 import datetime
 
 
+def count_sundays_on_the_first_between(date1, date2):
+    return count_sundays_between_no_builtin_functions(date1, date2, lambda d: d.weekday == 7 and d.day == 1)
+    #return count_sundays_between_using_builtin_functions(
+    #    datetime.date(date1.year, date1.month, date1.day),
+    #    datetime.date(date2.year, date2.month, date2.day),
+    #    lambda d : d.weekday() == 6 and d.day == 1)
+
+
 def count_sundays_between(date1, date2):
-    return count_sundays_between_no_builtin_functions(date1, date2)
+    return count_sundays_between_no_builtin_functions(date1, date2, lambda d: d.weekday == 7)
+    #return count_sundays_between_using_builtin_functions(
+    #    datetime.date(date1.year, date1.month, date1.day),
+    #    datetime.date(date2.year, date2.month, date2.day),
+    #    lambda d: d.weekday() == 6
+    #)
 
 
-#    return count_sundays_between_using_builtin_functions(
-#        datetime.date(date1.year, date1.month, date1.day),
-#        datetime.date(date2.year, date2.month, date2.day)
-#    )
-
-def count_sundays_between_no_builtin_functions(date1, date2):
+def count_sundays_between_no_builtin_functions(date1, date2, filter_function):
     num_sundays = 0
     iter_date = date1
     while iter_date <= date2:
-        if iter_date.weekday == 7:
+        if filter_function(iter_date):
             num_sundays += 1
         iter_date = iter_date.next_day()
     return num_sundays
 
 
-def count_sundays_between_using_builtin_functions(python_date1, python_date2):
+def count_sundays_between_using_builtin_functions(python_date1, python_date2, filter_function):
     num_sundays = 0
     iter_date = python_date1
     while iter_date <= python_date2:
-        if iter_date.weekday() == 6:
+        if filter_function(iter_date):
             num_sundays += 1
         iter_date += datetime.timedelta(days=1)
     return num_sundays

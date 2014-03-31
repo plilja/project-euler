@@ -40,7 +40,7 @@ class TestCountingDays(unittest.TestCase):
         self.assertEqual(count_sundays_between(Date(2013, 1, 1), Date(2014, 12, 31)), 104)
 
     def test_project_euler_input(self):
-        self.assertEqual(count_sundays_between(Date(1900, 1, 1), Date(2000, 12, 31)), 5270)
+        self.assertEqual(count_sundays_on_the_first_between(Date(1901, 1, 1), Date(2000, 12, 31)), 171)
 
 
 if __name__ == '__main__':
