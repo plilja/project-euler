@@ -1,6 +1,6 @@
 import unittest
 
-from prime_sieve.prime_sieve import PrimeSieve
+from common.primes import PrimeSieve
 
 
 class TestSumOfPrimes(unittest.TestCase):

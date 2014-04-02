@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from prime_sieve import *
+from primes import *
 
 
 prime_numbers_less_than_100 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
@@ -60,8 +60,3 @@ class TestPrimeSieve(TestCase):
     def test_list_prime_numbers_less_than_100(self):
         prime_sieve = PrimeSieve(100)
         self.assertEqual(prime_sieve.primes(), tuple(prime_numbers_less_than_100))
-
-    def test_10001_th_prime_number_is_104743(self):
-        prime_sieve = PrimeSieve(500000)
-        self.assertEqual(prime_sieve.primes()[10000], 104743)
-
