@@ -34,19 +34,29 @@ class TestPrimeFactorization(unittest.TestCase):
         self.assertEqual(prime_factorization(24), {2: 3, 3: 1})
 
 
-class TestAllFactors(unittest.TestCase):
-    def test_all_factors(self):
-        self.assertEqual(all_factors(1), {1})
-        self.assertEqual(all_factors(2), {1, 2})
-        self.assertEqual(all_factors(3), {1, 3})
-        self.assertEqual(all_factors(4), {1, 2, 4})
-        self.assertEqual(all_factors(6), {1, 2, 3, 6})
-        self.assertEqual(all_factors(8), {1, 2, 4, 8})
-        self.assertEqual(all_factors(24), {1, 2, 3, 4, 6, 8, 12, 24})
+class TestAllDivisors(unittest.TestCase):
+    def test_all_divisors(self):
+        self.assertEqual(all_divisors(1), {1})
+        self.assertEqual(all_divisors(2), {1, 2})
+        self.assertEqual(all_divisors(3), {1, 3})
+        self.assertEqual(all_divisors(4), {1, 2, 4})
+        self.assertEqual(all_divisors(6), {1, 2, 3, 6})
+        self.assertEqual(all_divisors(8), {1, 2, 4, 8})
+        self.assertEqual(all_divisors(24), {1, 2, 3, 4, 6, 8, 12, 24})
 
     def test_all_factors_big_number(self):
-        self.assertEqual(len(all_factors(76576500)), 576)
-        self.assertEqual(len(all_factors(76576500000)), 2016)
+        self.assertEqual(len(all_divisors(76576500)), 576)
+        self.assertEqual(len(all_divisors(76576500000)), 2016)
+
+
+class TestAllProperDivisors(unittest.TestCase):
+    def test_all_divisors(self):
+        self.assertEqual(all_proper_divisors(1), {1})
+        self.assertEqual(all_proper_divisors(2), {1})
+        self.assertEqual(all_proper_divisors(3), {1})
+        self.assertEqual(all_proper_divisors(4), {1, 2})
+        self.assertEqual(all_proper_divisors(8), {1, 2, 4})
+        self.assertEqual(all_proper_divisors(12), {1, 2, 3, 4, 6})
 
 
 if __name__ == '__main__':

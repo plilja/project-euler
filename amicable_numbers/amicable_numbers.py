@@ -1,18 +1,11 @@
-from common.factors import all_factors
-
-
-def _all_proper_divisors(n):
-    if n == 1:
-        return {1}
-    else:
-        return all_factors(n) - {n}
+from common.factors import all_proper_divisors
 
 
 def _sum_of_divisors(n, sum_of_divisors_cache):
     if n in sum_of_divisors_cache:
         return sum_of_divisors_cache[n]
     else:
-        sum_of_divisors = sum(_all_proper_divisors(n))
+        sum_of_divisors = sum(all_proper_divisors(n))
         sum_of_divisors_cache[n] = sum_of_divisors
         return sum_of_divisors
 

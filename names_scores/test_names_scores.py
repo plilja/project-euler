@@ -1,4 +1,5 @@
 import unittest
+import os
 
 from names_scores import *
 
@@ -16,7 +17,7 @@ class TestNamesScores(unittest.TestCase):
         self.assertEqual(names_scores(['COLIN', 'NILOC']), 159)
 
     def test_project_euler_input(self):
-        infile = open('names.txt')
+        infile = open(os.path.join(os.path.dirname(__file__), 'names.txt'))
         names = infile.read().replace('"', '').split(",")
         infile.close()
         self.assertEqual(names_scores(names), 871198282)

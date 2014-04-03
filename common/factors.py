@@ -22,7 +22,7 @@ def prime_factorization(number):
     return prime_factors_with_exponents
 
 
-def all_factors(number, known_factorization=None):
+def all_divisors(number, known_factorization=None):
     if known_factorization:
         _prime_factorization = known_factorization
     else:
@@ -33,10 +33,13 @@ def all_factors(number, known_factorization=None):
             continue
         prime_factorization_except_divisor = {k: _prime_factorization[k] for k in _prime_factorization if
                                               k != prime_factor}
-        all_factors_of_number_divided_by_prime_factor = all_factors(
+        all_factors_of_number_divided_by_prime_factor = all_divisors(
             number / prime_factor ** _prime_factorization[prime_factor],
             prime_factorization_except_divisor)
         for i in xrange(_prime_factorization[prime_factor] + 1):
             result |= {prime_factor ** i * x for x in all_factors_of_number_divided_by_prime_factor}
     return {1} | result
 
+
+def all_proper_divisors(n):
+    return all_divisors(n) - {n} | {1}
