@@ -1,6 +1,6 @@
 from itertools import repeat
 
-from largest_prime_factor.large_prime_factor import prime_factors
+from problem_3.large_prime_factor import prime_factors
 
 
 def factors_as_dict(divisors_of_number):

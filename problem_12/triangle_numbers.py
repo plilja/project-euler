@@ -1,6 +1,6 @@
 from math import sqrt
 
-from largest_prime_factor.large_prime_factor import prime_factors
+from problem_3.large_prime_factor import prime_factors
 
 
 def num_divisors(factors, number):
