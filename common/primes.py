@@ -3,7 +3,11 @@ from math import sqrt
 
 
 class PrimeSieve:
-    def __init__(self, size):
+    def __init__(self, size=1000):
+        self._initialize_to_size(size)
+
+    def _initialize_to_size(self, size):
+        self._size = size
         self._sieve = self._create_sieve(size)
         self._primes = self._create_primes(self._sieve)
 
@@ -30,9 +34,25 @@ class PrimeSieve:
         if number <= 1:
             return False
         if not number in self._sieve:
-            raise ValueError('Number not contained in sieve (%s)' % number)
+            self.grow(2 * number)
         return self._sieve[number]
 
     def primes(self):
         return tuple(self._primes)
+
+    def primes_less_than(self, n):
+        if n < self._size:
+            self.grow(2 * n)
+        res = []
+        for prime in self.primes():
+            if prime >= n:
+                break
+            res += [prime]
+        return tuple(res)
+
+    def current_size(self):
+        return self._size
+
+    def grow(self, new_size):
+        self._initialize_to_size(new_size)
 

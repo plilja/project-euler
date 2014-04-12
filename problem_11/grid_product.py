@@ -1,6 +1,6 @@
 import operator
 
-from matrix import Matrix
+from common.matrix import Matrix
 
 
 def _calc_row_product(numbers, start_idx, end_idx_excl):

@@ -1,7 +1,7 @@
 import unittest
 
 from grid_product import *
-from matrix import Matrix
+from common.matrix import Matrix
 
 
 def to_matrix(matrix_as_lists):
