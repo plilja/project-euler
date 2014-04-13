@@ -16,7 +16,7 @@ class TestLatticePaths(unittest.TestCase):
     def test_3_by_3_grid(self):
         self.assertEqual(lattice_paths(3, 3), 20)
 
-    def test_20_by_20_grid(self):
+    def test_project_euler_input(self):
         self.assertEqual(lattice_paths(20, 20), 137846528820)
 
 

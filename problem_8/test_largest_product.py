@@ -41,7 +41,7 @@ class TestLargestProductInSeries(TestCase):
     def test_largest_4_digit_product_in_448715875_is_1400(self):
         self.assertEqual(largest_product_in_series(4, '448715875'), 1400)
 
-    def test_project_euler_case(self):
+    def test_project_euler_input(self):
         inp = """73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511

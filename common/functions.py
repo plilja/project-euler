@@ -12,3 +12,14 @@ def fibonacci(n):
         res = fa + fb
         (fa, fb) = (fb, res)
     return res
+
+
+def number_as_digits(number):
+    if number == 0:
+        return [number]
+    remainder = number
+    res = []
+    while remainder != 0:
+        res = [remainder % 10] + res
+        remainder /= 10
+    return res

@@ -19,7 +19,7 @@ class TestFactorialDigitSum(unittest.TestCase):
     def test_10(self):
         self.assertEqual(factorial_digit_sum(10), 27)
 
-    def test_100(self):
+    def test_project_euler_input(self):
         self.assertEqual(factorial_digit_sum(100), 648)
 
 

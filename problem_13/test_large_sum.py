@@ -29,7 +29,7 @@ class TestLargeSum(unittest.TestCase):
         self.assertEqual(large_sum([9412343841234123, 9412343841234123, 4], 4), '1882')
 
 
-    def test_project_euler_case(self):
+    def test_project_euler_input(self):
         numbers = [37107287533902102798797998220837590246510135740250,
                    46376937677490009712648124896970078050417018260538,
                    74324986199524741059474233309513058123726617309629,

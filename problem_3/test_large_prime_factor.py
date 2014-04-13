@@ -19,5 +19,5 @@ class TestLargestPrimeFactor(TestCase):
     def test_largest_prime_factor_of_13195_is_29(self):
         self.assertEqual(largest_prime_factor(13195), 29)
 
-    def test_largest_prime_factor_of_600851475143_is_6857(self):
+    def test_project_euler_input(self):
         self.assertEqual(largest_prime_factor(600851475143), 6857)

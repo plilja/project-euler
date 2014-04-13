@@ -16,7 +16,7 @@ class TestEvenFibonacciSum(TestCase):
     def test_two_even_numbers(self):
         self.assertEqual(even_fibonacci(8), 10)
 
-    def test_numbers_smaller_than_4_million(self):
+    def test_project_euler_input(self):
         self.assertEqual(even_fibonacci(3999999), 4613732)
 
     def test_numbers_smaller_than_400_billion_and_one(self):

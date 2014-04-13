@@ -22,7 +22,7 @@ class TestTriangleNumbers(unittest.TestCase):
     def test_first_triangle_number_with_6_divisors_is_28(self):
         self.assertEqual(triangle_numbers_with_divisors(6), 28)
 
-    def test_first_triangle_number_with_500_divisors_is_76576500(self):
+    def test_project_euler_input(self):
         self.assertEqual(triangle_numbers_with_divisors(500), 76576500)
 
 

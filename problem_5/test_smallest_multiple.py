@@ -25,6 +25,6 @@ class TestSmallestMultiple(TestCase):
     def test_smallest_multiple_that_is_divisible_by_1_through_10_is_2520(self):
         self.assertEqual(smallest_multiple(range(1, 11)), 2520)
 
-    def test_smallest_multiple_that_is_divisible_by_1_through_20_is_232792560(self):
+    def test_project_euler_input(self):
         self.assertEqual(smallest_multiple(range(1, 21)), 232792560)
 
