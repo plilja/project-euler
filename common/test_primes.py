@@ -35,11 +35,11 @@ class TestPrimeSieve(TestCase):
 
     def test_list_prime_numbers_sieve_size_1(self):
         prime_sieve = PrimeSieve(1)
-        self.assertEqual(prime_sieve.primes(), tuple())
+        self.assertEqual(prime_sieve.primes(), [])
 
     def test_list_prime_numbers_less_than_100(self):
         prime_sieve = PrimeSieve(100)
-        self.assertEqual(prime_sieve.primes(), tuple(prime_numbers_less_than_100))
+        self.assertEqual(prime_sieve.primes(), prime_numbers_less_than_100)
 
     def test_prime_sieve_grows_when_needed(self):
         prime_sieve = PrimeSieve(2)

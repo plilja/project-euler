@@ -38,7 +38,7 @@ class PrimeSieve:
         return self._sieve[number]
 
     def primes(self):
-        return tuple(self._primes)
+        return self._primes
 
     def primes_less_than(self, n):
         if n < self._size:
