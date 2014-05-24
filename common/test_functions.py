@@ -36,5 +36,16 @@ class TestNumberAsDigits(unittest.TestCase):
                          [9, 0, 1, 9, 5, 2, 8, 4, 2, 9, 3, 5, 2, 1, 3, 7, 4, 1, 2, 3, 4, 1, 5, 3, 1, 4, 3, 1, 2, 0])
 
 
+class TestGcd(unittest.TestCase):
+    def test_gcd(self):
+        self.assertEqual(gcd(1, 0), 1)
+        self.assertEqual(gcd(1, 1), 1)
+        self.assertEqual(gcd(4, 8), 4)
+        self.assertEqual(gcd(8, 4), 4)
+        self.assertEqual(gcd(6, 9), 3)
+        self.assertEqual(gcd(12, 9), 3)
+        self.assertEqual(gcd(27, 18), 9)
+
+
 if __name__ == '__main__':
     unittest.main()
