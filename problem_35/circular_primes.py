@@ -4,7 +4,7 @@ from common.primes import PrimeSieve
 
 
 def circular_primes(upper_limit):
-    sieve = PrimeSieve(upper_limit)
+    sieve = PrimeSieve(upper_limit + 1)
     return [x for x in sieve.primes() if _is_circular_prime(x, sieve)]
 
 

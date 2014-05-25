@@ -21,11 +21,11 @@ class PrimeSieve:
         return sieve
 
     def _dict_with_all_numbers_initialized_as_primes(self, size):
-        return dict(zip(range(1, size / 2 + 1), repeat(True, size / 2 - 1)))
+        return dict(zip(range(1, size / 2), repeat(True, size / 2 - 1)))
 
     def _create_primes(self, sieve):
         primes = []
-        if self._size >= 2:
+        if self._size > 2:
             primes += [2]
         for key in sieve.keys():
             if sieve[key]:

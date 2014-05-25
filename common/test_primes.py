@@ -15,6 +15,7 @@ class TestPrimeSieve(TestCase):
 
     def test_prime_sieve_of_size_3(self):
         prime_sieve = PrimeSieve(3)
+        self.assertEqual([2], prime_sieve.primes())
         self.assertFalse(prime_sieve.is_prime(1))
         self.assertTrue(prime_sieve.is_prime(2))
         self.assertTrue(prime_sieve.is_prime(3))
