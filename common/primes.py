@@ -13,29 +13,33 @@ class PrimeSieve:
 
     def _create_sieve(self, size):
         sieve = self._dict_with_all_numbers_initialized_as_primes(size)
-        for i in range(2, int(sqrt(size)) + 1):
-            if not sieve[i]:
+        for i in range(3, int(sqrt(size)) + 1, 2):
+            if not sieve[i / 2]:
                 continue
-            for j in range(2 * i, size + 1, i):
-                sieve[j] = False
+            for j in range(3 * i, size + 1, 2 * i):
+                sieve[j / 2] = False
         return sieve
 
     def _dict_with_all_numbers_initialized_as_primes(self, size):
-        return dict(zip(range(2, size + 1), repeat(True, size - 1)))
+        return dict(zip(range(1, size / 2 + 1), repeat(True, size / 2 - 1)))
 
     def _create_primes(self, sieve):
         primes = []
+        if self._size >= 2:
+            primes += [2]
         for key in sieve.keys():
             if sieve[key]:
-                primes += [key]
+                primes += [key * 2 + 1]
         return primes
 
     def is_prime(self, number):
         if number <= 1:
             return False
-        if not number in self._sieve:
+        elif number % 2 == 0:
+            return number == 2
+        if not number / 2 in self._sieve:
             self.grow(2 * number)
-        return self._sieve[number]
+        return self._sieve[number / 2]
 
     def primes(self):
         return self._primes
@@ -48,7 +52,7 @@ class PrimeSieve:
             if prime >= n:
                 break
             res += [prime]
-        return tuple(res)
+        return res
 
     def current_size(self):
         return self._size
