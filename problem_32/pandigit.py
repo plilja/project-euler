@@ -1,13 +1,6 @@
 from math import sqrt
 
-
-def is_pandigital(num, start, end):
-    unused_values = set(range(start, end + 1)) | {0}
-    for digit_set in map(lambda x: {int(x)}, str(num)):
-        diff = unused_values ^ digit_set
-        intersect = unused_values & digit_set
-        unused_values = unused_values - intersect | diff
-    return unused_values <= {0}
+from common.functions import is_pandigital
 
 
 def pandigital_products():

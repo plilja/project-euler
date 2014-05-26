@@ -1,4 +1,5 @@
 import operator
+from itertools import repeat
 
 
 def factorial(n):
@@ -29,3 +30,11 @@ def gcd(a, b):
     if b == 0:
         return a
     return gcd(b, a % b)
+
+
+def is_pandigital(num, start, end):
+    values = dict(zip(range(start, end + 1), repeat(0, end - start + 1)))
+    for digit in number_as_digits(num):
+        if values.has_key(digit):
+            values[digit] += 1
+    return reduce(operator.and_, map(lambda x: x == 1, values.values()))
