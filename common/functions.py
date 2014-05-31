@@ -38,3 +38,20 @@ def is_pandigital(num, start, end):
         if values.has_key(digit):
             values[digit] += 1
     return reduce(operator.and_, map(lambda x: x == 1, values.values()))
+
+
+def permutations(symbols):
+    if not isinstance(symbols, set):
+        return permutations(set(symbols))
+    if not symbols:
+        return []
+    if len(symbols) == 1:
+        return [list(symbols)]
+    else:
+        result = []
+        symbol = symbols.pop()
+        sub_permutations = permutations(symbols)
+        for sub_permutation in sub_permutations:
+            for i in range(0, len(sub_permutation) + 1):
+                result += [sub_permutation[0:i] + [symbol] + sub_permutation[i:]]
+        return result

@@ -72,5 +72,14 @@ class TestGcd(unittest.TestCase):
         self.assertEqual(gcd(27, 18), 9)
 
 
+class PermutationsTest(unittest.TestCase):
+    def test_permutations(self):
+        self.assertEqual(sorted(permutations([])), [])
+        self.assertEqual(sorted(permutations([5])), [[5]])
+        self.assertEqual(sorted(permutations([1, 2])), sorted([[1, 2], [2, 1]]))
+        self.assertEqual(sorted(permutations([1, 2, 3])),
+                         sorted([[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]))
+
+
 if __name__ == '__main__':
     unittest.main()

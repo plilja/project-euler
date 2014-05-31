@@ -7,7 +7,46 @@ prime_numbers_less_than_100 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 4
                                89, 97]
 
 
-class TestPrimeSieve(TestCase):
+class IsPrimeTest(TestCase):
+    def test_is_prime(self):
+        for i in range(1, 101):
+            if i in prime_numbers_less_than_100:
+                self.assertTrue(is_prime(i), "Num %s should be prime" % i)
+            else:
+                self.assertFalse(is_prime(i), "Num %s should not be prime" % i)
+
+    def test_should_be_fast_for_composite_numbers(self):
+        self.assertFalse(is_prime(1050809347534824359819L))
+        self.assertFalse(is_prime(1050809333984857163161L))
+        self.assertFalse(is_prime(149461561934481176795353781L))
+        self.assertFalse(is_prime(239845434309367))
+
+
+class IsProbablyPrime(TestCase):
+    def test_numbers_below_100(self):
+        for i in range(5, 101, 2):
+            if i in prime_numbers_less_than_100:
+                self.assertTrue(is_probably_prime(i, 10), "Num %s should be prime" % i)
+            else:
+                self.assertFalse(is_probably_prime(i, 10), "Num %s should not be prime" % i)
+
+    def test_large_prime_numbers(self):
+        self.assertTrue(is_probably_prime(32416189381, 1))
+        self.assertTrue(is_probably_prime(32416189381, 100))
+        self.assertTrue(is_probably_prime(32416190071, 45))
+        self.assertTrue(is_probably_prime(32416187773, 4))
+        self.assertTrue(is_probably_prime(32416189681, 400))
+        self.assertTrue(is_probably_prime(32416189499, 40))
+        self.assertTrue(is_probably_prime(7652413, 10))
+
+    def test_large_composite_numbers(self):
+        self.assertFalse(is_probably_prime(1050809347534824359819L, 40))
+        self.assertFalse(is_probably_prime(1050809333984857163161L, 1))
+        self.assertFalse(is_probably_prime(149461561934481176795353781L, 1))
+        self.assertFalse(is_probably_prime(239845434309367, 1))
+
+
+class PrimeSieveTest(TestCase):
     def test_prime_sieve_of_size_1(self):
         prime_sieve = PrimeSieve(1)
         self.assertFalse(prime_sieve.is_prime(0))
