@@ -3,7 +3,7 @@ import unittest
 from functions import *
 
 
-class TestFactorial(unittest.TestCase):
+class FactorialTest(unittest.TestCase):
     def test_factorial(self):
         self.assertEqual(factorial(1), 1)
         self.assertEqual(factorial(2), 2)
@@ -14,7 +14,7 @@ class TestFactorial(unittest.TestCase):
         self.assertEqual(factorial(20), 2432902008176640000)
 
 
-class TestFibonacci(unittest.TestCase):
+class FibonacciTest(unittest.TestCase):
     def test_fibonacci(self):
         self.assertEqual(fibonacci(1), 1)
         self.assertEqual(fibonacci(2), 1)
@@ -25,7 +25,7 @@ class TestFibonacci(unittest.TestCase):
         self.assertEqual(fibonacci(40), 102334155)
 
 
-class TestNumberAsDigits(unittest.TestCase):
+class NumberAsDigitsTest(unittest.TestCase):
     def test_number_as_digits(self):
         self.assertEqual(number_as_digits(1), [1])
         self.assertEqual(number_as_digits(0), [0])
@@ -36,7 +36,7 @@ class TestNumberAsDigits(unittest.TestCase):
                          [9, 0, 1, 9, 5, 2, 8, 4, 2, 9, 3, 5, 2, 1, 3, 7, 4, 1, 2, 3, 4, 1, 5, 3, 1, 4, 3, 1, 2, 0])
 
 
-class TestIsPandigit(unittest.TestCase):
+class IsPandigitTest(unittest.TestCase):
     def test_not_all_numbers_used(self):
         self.assertFalse(is_pandigital(1, 1, 2))
         self.assertFalse(is_pandigital(2, 1, 1))
@@ -61,7 +61,7 @@ class TestIsPandigit(unittest.TestCase):
         self.assertTrue(is_pandigital(120304567890, 1, 9))
 
 
-class TestGcd(unittest.TestCase):
+class GcdTest(unittest.TestCase):
     def test_gcd(self):
         self.assertEqual(gcd(1, 0), 1)
         self.assertEqual(gcd(1, 1), 1)
@@ -79,6 +79,37 @@ class PermutationsTest(unittest.TestCase):
         self.assertEqual(sorted(permutations([1, 2])), sorted([[1, 2], [2, 1]]))
         self.assertEqual(sorted(permutations([1, 2, 3])),
                          sorted([[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]))
+
+
+class SolveSecondDegreeEquationTest(unittest.TestCase):
+    def test_illegal_input(self):
+        with self.assertRaises(ValueError):
+            solve_second_degree_equation(0, 0, 0)
+
+    def test_no_solutions(self):
+        self.assertEqual(solve_second_degree_equation(0, 0, 3), [])
+
+    def test_when_a_is_0_but_not_b(self):
+        self.assertEqual(solve_second_degree_equation(0, 1, 0), [0])
+        self.assertEqual(solve_second_degree_equation(0, 1, 1), [-1])
+        self.assertEqual(solve_second_degree_equation(0, 2, 1), [-0.5])
+
+    def test_when_b_is_0_but_not_a(self):
+        self.assertEqual(solve_second_degree_equation(1, 0, 0), [0])
+        self.assertEqual(solve_second_degree_equation(1, 0, -4), [2, -2])
+
+    def test_when_c_is_0_but_not_a_or_b(self):
+        self.assertEqual(solve_second_degree_equation(1, 1, 0), [0, -1])
+        self.assertEqual(solve_second_degree_equation(2, 1, 0), [0, -0.5])
+        self.assertEqual(solve_second_degree_equation(1, 2, 0), [0, -2])
+
+    def test_when_all_numbers_are_not_zero(self):
+        self.assertEqual(solve_second_degree_equation(1, 1, -2), [1, -2])
+        self.assertEqual(solve_second_degree_equation(2, 3, -2), [0.5, -2])
+
+    def test_complex_solutions_are_discarded(self):
+        self.assertEqual(solve_second_degree_equation(1, 1, 1), [])
+        self.assertEqual(solve_second_degree_equation(1, 2, 4), [])
 
 
 if __name__ == '__main__':

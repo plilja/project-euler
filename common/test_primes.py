@@ -15,7 +15,7 @@ class IsPrimeTest(TestCase):
             else:
                 self.assertFalse(is_prime(i), "Num %s should not be prime" % i)
 
-    def test_should_be_fast_for_composite_numbers(self):
+    def test_should_be_fast_for_large_composite_numbers(self):
         self.assertFalse(is_prime(1050809347534824359819L))
         self.assertFalse(is_prime(1050809333984857163161L))
         self.assertFalse(is_prime(149461561934481176795353781L))

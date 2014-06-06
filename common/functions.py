@@ -1,5 +1,6 @@
 import operator
 from itertools import repeat
+from math import *
 
 
 def factorial(n):
@@ -55,3 +56,29 @@ def permutations(symbols):
             for i in range(0, len(sub_permutation) + 1):
                 result += [sub_permutation[0:i] + [symbol] + sub_permutation[i:]]
         return result
+
+
+def solve_second_degree_equation(a, b, c):
+    """
+    Solves a second degree equation of the form ax**2 + bx + c = 0.
+    Returns real valued solutions as a list. Complex solutions are ignored.
+    """
+    if (a, b, c) == (0, 0, 0):
+        raise ValueError("Infinite number of solutions")
+    if (a, b) == (0, 0):
+        return []
+    if a == 0:
+        return [-float(c) / float(b)]
+    p = float(b) / float(a)
+    q = float(c) / float(a)
+    d = (p / 2) ** 2
+    if d - q == 0:
+        return [-p / 2]
+    if d - q > 0:
+        return [-p / 2 + sqrt(d - q), -p / 2 - sqrt(d - q)]
+    else:
+        return []
+
+
+def is_integer(float_number):
+    return abs(float_number - round(float_number)) < 0.0000001
