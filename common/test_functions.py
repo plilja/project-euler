@@ -112,5 +112,42 @@ class SolveSecondDegreeEquationTest(unittest.TestCase):
         self.assertEqual(solve_second_degree_equation(1, 2, 4), [])
 
 
+class IsPentagonNumberTest(unittest.TestCase):
+    def test_is_pentagon_number(self):
+        self.assertFalse(is_pentagon_number(0))
+        self.assertTrue(is_pentagon_number(1))
+        self.assertFalse(is_pentagon_number(2))
+        self.assertFalse(is_pentagon_number(3))
+        self.assertTrue(is_pentagon_number(5))
+        self.assertFalse(is_pentagon_number(7))
+        self.assertTrue(is_pentagon_number(12))
+        self.assertTrue(is_pentagon_number(22))
+        self.assertTrue(is_pentagon_number(70))
+        self.assertFalse(is_pentagon_number(71))
+        self.assertFalse(is_pentagon_number(100))
+
+
+class IsHexagonNumberTest(unittest.TestCase):
+    def test_is_hexagon_number(self):
+        self.assertFalse(is_hexagonal_number(0))
+        self.assertFalse(is_hexagonal_number(3))
+        self.assertFalse(is_hexagonal_number(43))
+        self.assertTrue(is_hexagonal_number(1))
+        self.assertTrue(is_hexagonal_number(6))
+        self.assertTrue(is_hexagonal_number(45))
+
+
+class IsTriangleNumber(unittest.TestCase):
+    def test_is_triangle_number(self):
+        self.assertFalse(is_triangle_number(0))
+        self.assertFalse(is_triangle_number(2))
+        self.assertFalse(is_triangle_number(7))
+        self.assertFalse(is_triangle_number(14))
+        self.assertTrue(is_triangle_number(1))
+        self.assertTrue(is_triangle_number(3))
+        self.assertTrue(is_triangle_number(6))
+        self.assertTrue(is_triangle_number(15))
+
+
 if __name__ == '__main__':
     unittest.main()

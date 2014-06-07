@@ -82,3 +82,24 @@ def solve_second_degree_equation(a, b, c):
 
 def is_integer(float_number):
     return abs(float_number - round(float_number)) < 0.0000001
+
+
+def is_pentagon_number(number):
+    #pn = n(3n-1)/2 = 1.5n**2 -0.5n
+    return _second_degree_equation_has_positive_int_solution(1.5, -0.5, -number)
+
+
+def is_hexagonal_number(number):
+    #hn = n(2n - 1) = 2n**2 - n
+    return _second_degree_equation_has_positive_int_solution(2, -1, -number)
+
+
+def is_triangle_number(number):
+    #tn = 0.5 * n (n + 1) = 0.5n**2 + 0.5*n
+    return _second_degree_equation_has_positive_int_solution(0.5, 0.5, -number)
+
+
+def _second_degree_equation_has_positive_int_solution(a, b, c):
+    solutions = solve_second_degree_equation(a, b, c)
+    positive_integer_solutions = filter(lambda solution: solution > 0 and is_integer(solution), solutions)
+    return len(positive_integer_solutions) > 0
