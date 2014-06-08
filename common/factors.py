@@ -1,7 +1,14 @@
 from math import sqrt, floor
 
 
+def distinct_prime_factors(number):
+    return set(prime_factors(number))
+
+
 def prime_factors(number):
+    """
+    Returns list of all prime factors of a number.
+    """
     largest_possible_prime_factor = int(floor(sqrt(number)))
     for n in range(largest_possible_prime_factor, 1, -1):
         if number % n == 0:
@@ -10,6 +17,12 @@ def prime_factors(number):
 
 
 def prime_factorization(number):
+    """
+    Returns factorization of number as set we're each entry contains the factor
+    and the power to which the factor fits in the number.
+
+    Example prime_factorization(12) = {2:2, 3:1}
+    """
     if number == 1:
         return {1: 1}
     _prime_factors = prime_factors(number)
