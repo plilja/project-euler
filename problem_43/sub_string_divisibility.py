@@ -1,7 +1,6 @@
 from operator import add
 
 from common.decorators import listify
-
 from common.functions import permutations
 
 
@@ -13,10 +12,10 @@ def find_candidates():
     candidates_without_five = permutations([0, 1, 2, 3, 4, 6, 7, 8, 9])
     for candidate in candidates_without_zero:
         if candidate[3] % 2 == 0:
-            yield candidate[0:5] + [0] + candidate[5:]
+            yield candidate[0:5] + (0,) + candidate[5:]
     for candidate in candidates_without_five:
         if candidate[0] != 0 and candidate[3] % 2 == 0:
-            yield candidate[0:5] + [5] + candidate[5:]
+            yield candidate[0:5] + (5,) + candidate[5:]
 
 
 @listify

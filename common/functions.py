@@ -42,20 +42,18 @@ def is_pandigital(num, start, end):
 
 
 def permutations(symbols):
-    if not isinstance(symbols, set):
-        return permutations(set(symbols))
     if not symbols:
         return []
     if len(symbols) == 1:
-        return [list(symbols)]
+        return [tuple(symbols)]
     else:
-        result = []
-        symbol = symbols.pop()
-        sub_permutations = permutations(symbols)
+        result = set()
+        symbol = symbols[0]
+        sub_permutations = permutations(symbols[1:])
         for sub_permutation in sub_permutations:
             for i in range(0, len(sub_permutation) + 1):
-                result += [sub_permutation[0:i] + [symbol] + sub_permutation[i:]]
-        return result
+                result |= {sub_permutation[0:i] + (symbol,) + sub_permutation[i:]}
+        return list(result)
 
 
 def solve_second_degree_equation(a, b, c):
@@ -103,3 +101,16 @@ def _second_degree_equation_has_positive_int_solution(a, b, c):
     solutions = solve_second_degree_equation(a, b, c)
     positive_integer_solutions = filter(lambda solution: solution > 0 and is_integer(solution), solutions)
     return len(positive_integer_solutions) > 0
+
+
+def pick_from(values, num_to_pick):
+    if len(values) < num_to_pick:
+        return []
+    if len(values) == num_to_pick:
+        return [tuple(values)]
+    if num_to_pick == 0:
+        return [tuple()]
+    first = values[0]
+    result_with_first = map(lambda x: (first,) + x, pick_from(values[1:], num_to_pick - 1))
+    result_without_first = pick_from(values[1:], num_to_pick)
+    return list(set(result_with_first + result_without_first))

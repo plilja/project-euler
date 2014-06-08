@@ -73,12 +73,16 @@ class GcdTest(unittest.TestCase):
 
 
 class PermutationsTest(unittest.TestCase):
-    def test_permutations(self):
+    def test_permutations_distinct_elements(self):
         self.assertEqual(sorted(permutations([])), [])
-        self.assertEqual(sorted(permutations([5])), [[5]])
-        self.assertEqual(sorted(permutations([1, 2])), sorted([[1, 2], [2, 1]]))
+        self.assertEqual(sorted(permutations([5])), [(5,)])
+        self.assertEqual(sorted(permutations([1, 2])), sorted([(1, 2), (2, 1)]))
         self.assertEqual(sorted(permutations([1, 2, 3])),
-                         sorted([[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]))
+                         sorted([(1, 2, 3), (2, 1, 3), (2, 3, 1), (1, 3, 2), (3, 1, 2), (3, 2, 1)]))
+
+    def test_permutations_duplicate_elements(self):
+        self.assertEqual(permutations([1, 1]), [(1, 1)])
+        self.assertEqual(sorted(permutations([1, 1, 2])), sorted([(1, 1, 2), (1, 2, 1), (2, 1, 1)]))
 
 
 class SolveSecondDegreeEquationTest(unittest.TestCase):
@@ -147,6 +151,18 @@ class IsTriangleNumber(unittest.TestCase):
         self.assertTrue(is_triangle_number(3))
         self.assertTrue(is_triangle_number(6))
         self.assertTrue(is_triangle_number(15))
+
+
+class PickFromTest(unittest.TestCase):
+    def test_pick_from(self):
+        self.assertEqual(pick_from([], 1), [])
+        self.assertEqual(pick_from([1], 1), [(1,)])
+        self.assertEqual(pick_from([1, 2, 3], 0), [tuple()])
+        self.assertEqual(sorted(pick_from([1, 2], 1)), sorted([(1,), (2,)]))
+        self.assertEqual(sorted(pick_from([1, 2, 3], 2)), sorted([(1, 2), (1, 3), (2, 3)]))
+        self.assertEqual(sorted(pick_from([1, 2, 3, 4], 3)),
+                         sorted([(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]))
+        self.assertEqual(pick_from([9, 9, 9], 2), [(9, 9)])
 
 
 if __name__ == '__main__':
