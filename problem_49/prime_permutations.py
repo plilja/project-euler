@@ -18,13 +18,13 @@ def prime_permutations():
             prime_permutations += [num]
         combinations = pick_from(list(prime_permutations), 3)
         for combination in combinations:
-            if _is_prime_permutation(combination):
+            if _fills_criteria(combination):
                 if 1487 in combination:
                     break
                 return combination
 
 
-def _is_prime_permutation(combination):
+def _fills_criteria(combination):
     sorted_combination = sorted(combination)
     if sorted_combination[1] - sorted_combination[0] != sorted_combination[2] - sorted_combination[1]:
         return False
