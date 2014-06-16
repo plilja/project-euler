@@ -104,7 +104,7 @@ class PrimeSieve:
         return self._primes
 
     def primes_less_than(self, n):
-        if n < self._size:
+        if n > self._size:
             self.grow(2 * n)
         res = []
         for prime in self.primes():

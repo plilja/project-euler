@@ -26,14 +26,34 @@ class FibonacciTest(unittest.TestCase):
 
 
 class NumberAsDigitsTest(unittest.TestCase):
-    def test_number_as_digits(self):
-        self.assertEqual(number_as_digits(1), [1])
+    def test_negative_number(self):
+        self.assertEqual(number_as_digits(-1), [-1])
+        self.assertEqual(number_as_digits(-10), [-1, 0])
+
+    def test_zero(self):
         self.assertEqual(number_as_digits(0), [0])
+
+    def test_positive_numbers(self):
+        self.assertEqual(number_as_digits(1), [1])
         self.assertEqual(number_as_digits(3), [3])
         self.assertEqual(number_as_digits(10), [1, 0])
         self.assertEqual(number_as_digits(101), [1, 0, 1])
+
+    def test_big_input(self):
         self.assertEqual(number_as_digits(901952842935213741234153143120),
                          [9, 0, 1, 9, 5, 2, 8, 4, 2, 9, 3, 5, 2, 1, 3, 7, 4, 1, 2, 3, 4, 1, 5, 3, 1, 4, 3, 1, 2, 0])
+
+
+class DigitAsNumberTest(unittest.TestCase):
+    def test_positive_number(self):
+        self.assertEqual(digits_as_num([1, 2, 3]), 123)
+        self.assertEqual(digits_as_num([1]), 1)
+
+    def test_zero(self):
+        self.assertEqual(digits_as_num([0]), 0)
+
+    def test_negative_number(self):
+        self.assertEqual(digits_as_num([-1, 2, 4]), -124)
 
 
 class IsPandigitTest(unittest.TestCase):

@@ -102,5 +102,10 @@ class PrimeSieveTest(TestCase):
         self.assertEqual(prime_sieve.primes_less_than(10), [2, 3, 5, 7])
 
     def test_primes_less_than_n_when_n_is_greater_than_than_size(self):
-        prime_sieve = PrimeSieve(9)
-        self.assertEqual(prime_sieve.primes_less_than(10), [2, 3, 5, 7])
+        prime_sieve = PrimeSieve(10)
+        self.assertEqual(prime_sieve.primes_less_than(20), [2, 3, 5, 7, 11, 13, 17, 19])
+
+    def test_primes_less_than_n_when_n_is_one_greater_than_size(self):
+        prime_sieve = PrimeSieve(11)
+        self.assertEqual(prime_sieve.primes_less_than(12), [2, 3, 5, 7, 11])
+

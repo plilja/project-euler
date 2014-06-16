@@ -19,11 +19,25 @@ def fibonacci(n):
 def number_as_digits(number):
     if number == 0:
         return [number]
+    if number < 0:
+        negated_res = number_as_digits(-number)
+        negated_res[0] *= -1
+        return negated_res
     remainder = number
     res = []
     while remainder != 0:
         res = [remainder % 10] + res
         remainder /= 10
+    return res
+
+
+def digits_as_num(digits):
+    sign = int(copysign(1, digits[0]))
+    res = 0
+    power = 1
+    for digit in reversed(digits):
+        res += sign * power * abs(digit)
+        power *= 10
     return res
 
 
@@ -83,17 +97,17 @@ def is_integer(float_number):
 
 
 def is_pentagon_number(number):
-    #pn = n(3n-1)/2 = 1.5n**2 -0.5n
+    # pn = n(3n-1)/2 = 1.5n**2 -0.5n
     return _second_degree_equation_has_positive_int_solution(1.5, -0.5, -number)
 
 
 def is_hexagonal_number(number):
-    #hn = n(2n - 1) = 2n**2 - n
+    # hn = n(2n - 1) = 2n**2 - n
     return _second_degree_equation_has_positive_int_solution(2, -1, -number)
 
 
 def is_triangle_number(number):
-    #tn = 0.5 * n (n + 1) = 0.5n**2 + 0.5*n
+    # tn = 0.5 * n (n + 1) = 0.5n**2 + 0.5*n
     return _second_degree_equation_has_positive_int_solution(0.5, 0.5, -number)
 
 
