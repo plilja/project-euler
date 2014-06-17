@@ -185,5 +185,16 @@ class PickFromTest(unittest.TestCase):
         self.assertEqual(pick_from([9, 9, 9], 2), [(9, 9)])
 
 
+class BinomialCoefficient(unittest.TestCase):
+    def test_legal_input(self):
+        self.assertEqual(binomial_coefficient(1, 1), 1)
+        self.assertEqual(binomial_coefficient(0, 1), 0)
+        self.assertEqual(binomial_coefficient(1, 2), 0)
+        self.assertEqual(binomial_coefficient(1, 0), 1)
+        self.assertEqual(binomial_coefficient(2, 1), 2)
+        self.assertEqual(binomial_coefficient(4, 3), 4)
+        self.assertEqual(binomial_coefficient(5, 3), 10)
+
+
 if __name__ == '__main__':
     unittest.main()

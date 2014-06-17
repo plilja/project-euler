@@ -128,3 +128,10 @@ def pick_from(values, num_to_pick):
     result_with_first = map(lambda x: (first,) + x, pick_from(values[1:], num_to_pick - 1))
     result_without_first = pick_from(values[1:], num_to_pick)
     return list(set(result_with_first + result_without_first))
+
+def binomial_coefficient(n, k):
+    diff = n - k
+    numerator = 1
+    for j in range(n, diff, -1):
+        numerator *= j
+    return numerator/factorial(k)
