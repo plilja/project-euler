@@ -135,3 +135,6 @@ def binomial_coefficient(n, k):
     for j in range(n, diff, -1):
         numerator *= j
     return numerator/factorial(k)
+
+def is_palindrome(number):
+    return str(number) == str(number)[::-1]

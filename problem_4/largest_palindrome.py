@@ -1,6 +1,4 @@
-def is_palindrome(number):
-    return str(number) == str(number)[::-1]
-
+from common.functions import is_palindrome
 
 def largest_palindrome(number_of_digits_in_product):
     largest_product = pow(10, number_of_digits_in_product) - 1
