@@ -17,18 +17,11 @@ def fibonacci(n):
 
 
 def number_as_digits(number):
-    if number == 0:
-        return [number]
     if number < 0:
         negated_res = number_as_digits(-number)
         negated_res[0] *= -1
         return negated_res
-    remainder = number
-    res = []
-    while remainder != 0:
-        res = [remainder % 10] + res
-        remainder /= 10
-    return res
+    return map(int, str(number))
 
 
 def digits_as_num(digits):
