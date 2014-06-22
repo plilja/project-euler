@@ -24,8 +24,8 @@ def prime_set(wanted_size):
         if len(candidates) + len(verified) < wanted_size:
             continue
         candidate = candidates.pop()
-        candidate_queue += [(verified + [candidate], PRIME_PAIRS[candidate] & candidates)]
-        candidate_queue += [(verified, candidates)]
+        candidate_queue = [(verified + [candidate], PRIME_PAIRS[candidate] & candidates)] + candidate_queue
+        candidate_queue = [(verified, candidates)] + candidate_queue
     return sorted(best_val)
 
 
