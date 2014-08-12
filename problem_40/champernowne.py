@@ -13,9 +13,9 @@ def _calculate_champernownes_nth_decimal(length):
 
 
 def champernownes_nth_decimal(n):
+    global _champernownes_constant
     if len(_champernownes_constant) >= n:
         return int(_champernownes_constant[n - 1])
-    global _champernownes_constant
     _champernownes_constant = _calculate_champernownes_nth_decimal(2 * n)
     return champernownes_nth_decimal(n)
 
