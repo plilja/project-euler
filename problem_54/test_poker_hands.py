@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from poker_hands import *
@@ -118,6 +119,16 @@ class PokerHandsTest(unittest.TestCase):
     def test_when_equal_hands_both_are_winners(self):
         self.assertEqual(who_wins({1: _split('5D 8C 9S JS AC'),
                                    2: _split('5H 8S 9C JD AH')}), [1,2])
+
+    def test_project_euler(self):
+        infile = open(os.path.join(os.path.dirname(__file__), 'poker.txt'))
+        lines = infile.readlines()
+        infile.close()
+        games = [{1:_split(line[0:14]), 2:_split(line[15:29])} for line in lines]
+        winners = map(who_wins, games)
+        player_one_wins = len(filter(lambda res: 1 in res, winners))
+        self.assertEqual(player_one_wins, 376)
+
 
 def _split(hand):
     return hand.split(' ')
