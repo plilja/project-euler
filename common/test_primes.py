@@ -9,7 +9,7 @@ prime_numbers_less_than_100 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 4
 
 class IsPrimeTest(TestCase):
     def test_is_prime(self):
-        for i in range(1, 101):
+        for i in range(0, 101):
             if i in prime_numbers_less_than_100:
                 self.assertTrue(is_prime(i), "Num %s should be prime" % i)
             else:

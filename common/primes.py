@@ -14,7 +14,7 @@ def is_prime(num):
 
 def _is_definitely_prime(num):
     if num < 6:
-        return num != 1 and num != 4
+        return num == 2 or num == 3 or num == 5
 
     if not num % 2 or not num % 3:
         return False
