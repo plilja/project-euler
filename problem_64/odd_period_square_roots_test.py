@@ -1,6 +1,7 @@
 import unittest
 from odd_period_square_roots import *
 
+
 class PeriodLengthTst(unittest.TestCase):
     def test_period_length(self):
         self.assertEqual(1, period_length(2))

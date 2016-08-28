@@ -14,9 +14,7 @@ def period_length(n):
         ans += 1
         c = n - b*b
         a_new = c / gcd(a, c)
-        i = 1
-        while r + b - a_new * (i + 1) > 0:
-            i += 1
+        i = int((r + b) / a_new)
         b = abs(b - i * a_new)
         a = a_new
     return ans
