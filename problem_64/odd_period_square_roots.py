@@ -1,11 +1,4 @@
-from math import *
-
-
-def gcd(a, b):
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a % b)
+from common.functions import *
 
 
 def period_length(n):
